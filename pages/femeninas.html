@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Matias Rivera">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Anton&family=Bangers&family=Bigelow+Rules&family=Cedarville+Cursive&family=Concert+One&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@400..700&family=Danfo&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Galada&family=Kaushan+Script&family=Manrope:wght@200..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Permanent+Marker&family=Play:wght@400;700&family=Poetsen+One&family=Rakkas&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+    <title>Perfumeria</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary container-fluid">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#"><img class="bienvenidos" src="../assets/Imagenes/bienvenidos.png"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse div__nav" id="navbarNav">
+                    <ul class="navbar-nav ul__nav">
+                        <li class="nav-item">
+                            <a class="nav-link inicio" aria-current="page" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fragancia fragancia__masculina" href="./masculino.html">Fragancias
+                                Masculinas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fragancia fragancia__femenina" href="./femeninas.html">Fragancias
+                                Femeninas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="div__carrito">
+            <button id="boton__carrito__femenino" class="boton__carrito">Carrito</button>
+        </div>
+        <div id="pagina__productos__femeninos">
+            <div class="div__buscador">
+                <input class="buscador" id="buscar__femeninos" placeholder="Ingresa el nombre">
+                <button id="boton__femeninos" class="boton__buscador">Buscar</button>
+            </div>
+            <div class="div__esencia">
+                <h3 class="titulo__esencia">Esencia</h3>
+            </div>
+            <div id="div__filtros__femeninos" class="filtros">
+                <label class="label">Madera
+                    <input class="input__fem" id="madera" type="checkbox">
+                </label>
+                <label class="label">Citrico
+                    <input class="input__fem" id="citrico" type="checkbox">
+                </label>
+                <label class="label">Floral
+                    <input class="input__fem" id="floral" type="checkbox">
+                </label>
+            </div>
+            <div class="container contenedor__perfumes" id="perfumes-femeninos">
+            </div>
+        </div>
+        <div class="oculto" id="pagina__carrito__femenino">
+            <div id="contenedorCarritoFemenino">
+            </div>
+            <div class="contenedor__compra">
+                <button id="fin__femeninos" class="boton__buscador">
+                    Finalizar Compra
+                </button>
+                <div class="div__total" id="totalFemenino">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="../script2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

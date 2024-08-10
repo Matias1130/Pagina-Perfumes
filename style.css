@@ -1,0 +1,200 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bienvenidos{
+    width: 300px;
+}
+
+.div__nav{
+    display: flex;
+}
+.ul__nav{
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+}
+
+
+
+.inicio{
+    font-family: "Edu AU VIC WA NT Hand";
+    font-weight: bolder;
+    font-size: 20px;
+    color: #333333;
+    transition: 1s ease;
+}
+
+.inicio:hover{
+    transform: scale(1.2);
+    color: #131313;
+}
+
+.fragancia{
+    font-weight: bolder;
+    font-family: "Edu AU VIC WA NT Hand";
+    font-size: 18px;
+    color: #414141;
+    transition: 0.6s ease;
+}
+
+.fragancia__masculina:hover{
+    transform: scale(1.1);
+    color: #2421d6;
+
+}
+.fragancia__femenina:hover{
+    transform: scale(1.1);
+    color: #e9aadb;
+
+}
+/*Estilo Main*/
+.baner__main{
+    width: 100%;
+}
+
+/*Estilo perfumes masculinos*/
+
+.div__buscador{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.div__carrito{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.boton__carrito{
+    border-right: none;
+    border-top: none;
+    background-color: #aac0e9;
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+.buscador{
+    padding: 5px;
+    border-radius: 10px;
+    border-top: none;
+    border-right: none;
+    font-family: monospace;
+}
+
+.boton__buscador{
+    border-radius: 5px;
+    border: none;
+    background-color: #aac0e9;
+    font-family: monospace;
+}
+
+.contenedor__perfumes{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    padding: 20px;
+}
+
+
+.tarjeta__perfume{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 35px;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo__perfume{
+    font-family: "Edu AU VIC WA NT Hand";
+    font-size: bolder;
+}
+
+.subtitulo__perfume{
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.imagen__perfume{
+    width: 30%;
+}
+
+.boton{
+    width: 30%;
+    border-radius: 10px;
+    font-family: monospace;
+    color: aliceblue;
+    background-color: rgb(32, 28, 56);
+    transition: 0.7s ease;
+}
+
+.boton:hover{
+    transform: scale(1.2);
+}
+
+.div__esencia{
+    display: flex;
+    justify-content: flex-end;
+    ;
+}
+
+.titulo__esencia{
+    font-family: monospace;
+}
+
+.filtros{
+    display: flex;
+    justify-content: end;
+}
+
+.label{
+    font-family: monospace;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#contenedorCarrito{
+    margin-top: 25px;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+}
+
+#contenedorCarritoFemenino{
+    margin-top: 25px;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+}
+
+.div__carrito{
+    display: flex;
+    justify-content: space-around;
+}
+
+.div__total{
+    display: flex;
+    justify-content: end;
+}
+
+.contenedor__compra{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.div__total h3{
+    font-family: monospace;
+}
+
+.oculto{
+    display: none;
+}
