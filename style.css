@@ -198,3 +198,7 @@ body{
 .oculto{
     display: none;
 }
+
+.imagen__principal{
+    padding: 0;
+}

@@ -80,6 +80,7 @@ botonesAgregarAlCarrito.forEach(boton => {
         let idProducto = boton.id.split('-')[1];
         let producto = perfumesFemeninos.find(p => p.id == idProducto);
         agregarAlCarrito(producto, carrito);
+        alertaSumaCarrito()
         renderizarCarrito(carrito);
         setearCarrito(carrito);
     });
@@ -147,7 +148,7 @@ function finalizarCompra() {
     localStorage.removeItem("carrito");
     carrito.length = 0;
     renderizarCarrito([]);
-    alert("GRACIAS POR SU COMPRA");
+    lanzarAlertaFemenino();
 }
 // Funcion para poder ocultar el carrito mientas estamos seleccionando los productos
 let botonVerCarrito = document.getElementById("boton__carrito__femenino");
@@ -171,3 +172,29 @@ function verOcultar(e) {
 let botonFinalizar = document.getElementById("fin__femeninos");
 botonFinalizar.addEventListener("click", finalizarCompra);
 
+function lanzarAlertaFemenino() {
+    Swal.fire({
+        title: "Pedido realizado con exito!",
+        text: "En breve recibiras un mail con toda la informacion.",
+        imageUrl: "../assets/Imagenes/logo2.png",
+        imageWidth: 300,
+        imageHeight: 400,
+        imageAlt: "Custom image"
+
+    });
+}
+function alertaSumaCarrito() {
+
+    Toastify({
+        text: "Sumado al carrito!",
+        duration: 3000,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, #eeaeae, #bc94e9)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+}
