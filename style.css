@@ -202,3 +202,13 @@ body{
 .imagen__principal{
     padding: 0;
 }
+
+.boton__eliminar{
+    border-radius: 10px;
+    background-color: rgb(148, 1, 1);
+    color: #ffffff;
+    border-top: none;
+    border-right: none;
+    letter-spacing: 1px;
+    font-weight: bold;
+}

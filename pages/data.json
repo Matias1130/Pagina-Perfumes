@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "nombre": "One Millon",
+        "esencia": "Floral",
+        "cantidad": "60 Ml",
+        "precio": "10000",
+        "categoria": "Masculino",
+        "rutaImagen": "one-millon.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Invictus",
+        "esencia": "Floral",
+        "cantidad": "60Ml",
+        "precio": "12500",
+        "categoria": "Masculino",
+        "rutaImagen": "invictus.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Scandal",
+        "esencia": "Citrico",
+        "cantidad": "60Ml",
+        "precio": "12500",
+        "categoria": "Masculino",
+        "rutaImagen": "scandal-masculino.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Bad Boy",
+        "esencia": "Citrico",
+        "cantidad": "60Ml",
+        "precio": "13500",
+        "categoria": "Masculino",
+        "rutaImagen": "bad-boy.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Ck One",
+        "esencia": "Floral",
+        "cantidad": "60Ml",
+        "precio": "11500",
+        "categoria": "Masculino",
+        "rutaImagen": "ck-one.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "212 Vip Black",
+        "esencia": "Citrico",
+        "cantidad": "60Ml",
+        "precio": "10500",
+        "categoria": "Masculino",
+        "rutaImagen": "212-vip-black.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "Phantom",
+        "esencia": "Citrico",
+        "cantidad": "60Ml",
+        "precio": "13500",
+        "categoria": "Masculino",
+        "rutaImagen": "phantom.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Kenzo Homme",
+        "esencia": "Madera",
+        "cantidad": "60Ml",
+        "precio": "12500",
+        "categoria": "Masculino",
+        "rutaImagen": "kenzo-homme.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "212 Men NYC",
+        "esencia": "Floral",
+        "cantidad": "60Ml",
+        "precio": "15500",
+        "categoria": "Masculino",
+        "rutaImagen": "212-men-nyc.jpg"
+    },
+    {
+        "id": 10,
+        "nombre": "CH Men",
+        "esencia": "Madera",
+        "cantidad": "60Ml",
+        "precio": "12500",
+        "categoria": "Masculino",
+        "rutaImagen": "ch-men.jpg"
+    },
+    {
+        "id": 11,
+        "nombre": "212 Vip Men",
+        "esencia": "Floral",
+        "cantidad": "60Ml",
+        "precio": "14000",
+        "categoria": "Masculino",
+        "rutaImagen": "212-vip-men.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "Fahrenheit",
+        "esencia": "Madera",
+        "cantidad": "60Ml",
+        "precio": "18500",
+        "categoria": "Masculino",
+        "rutaImagen": "fahrenheit.jpg"
+    },
+    {
+        "id": 13,
+        "nombre": "Sauvage",
+        "esencia": "Madera",
+        "cantidad": "60Ml",
+        "precio": "11000",
+        "categoria": "Masculino",
+        "rutaImagen": "sauvage.jpg"
+    },
+    {
+        "id": 14,
+        "nombre": "L'eau D'issey",
+        "esencia": "Floral",
+        "cantidad": "60Ml",
+        "precio": "8500",
+        "categoria": "Masculino",
+        "rutaImagen": "dissey.jpg"
+    },
+    {
+        "id": 15,
+        "nombre": "Acqua Di Gio",
+        "esencia": "Citrico",
+        "cantidad": "60Ml",
+        "precio": "13000",
+        "categoria": "Masculino",
+        "rutaImagen": "acqua-di-gio.jpg"
+    },
+    {
+        "id": 16,
+        "nombre": "Armani Code",
+        "esencia": "Citrico",
+        "cantidad": "60Ml",
+        "precio": "17500",
+        "categoria": "Masculino",
+        "rutaImagen": "armani-code.jpg"
+    },
+    {
+        "id": 17,
+        "nombre": "Polo Blue",
+        "esencia": "Madera",
+        "cantidad": "60Ml",
+        "precio": "12000",
+        "categoria": "Masculino",
+        "rutaImagen": "polo-blue.jpg"
+    },
+    {
+        "id": 18,
+        "nombre": "Black XS",
+        "esencia": "Madera",
+        "cantidad": "60Ml",
+        "precio": "15500",
+        "categoria": "Masculino",
+        "rutaImagen": "black-xs.jpg"
+    },
+    {
+        "id": 19,
+        "nombre": "Polo Red",
+        "esencia": "Citrico",
+        "cantidad": "60Ml",
+        "precio": "12500",
+        "categoria": "Masculino",
+        "rutaImagen": "polo-red.jpg"
+    },
+    {
+        "id": 20,
+        "nombre": "Hugo Man",
+        "esencia": "Madera",
+        "cantidad": "60Ml",
+        "precio": "12000",
+        "categoria": "Masculino",
+        "rutaImagen": "hugo-men.jpg"
+    }
+]
