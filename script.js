@@ -3,9 +3,7 @@ fetch("./data.json")
     .then(response => response.json())
     .then(productos => encierraTodo(productos))
     .catch(error => console.log(error))
-
-
-
+// Funcion encierraTodo , al no poder conseguir correctamente la funcion principal , me vi obligado a recurrir a esta funcion un tanto informal , pero con resultados sactifactorios a la hora de ejecutar el fetch.
 function encierraTodo(perfumesMasculinos) {
     let carrito = obtenerCarrito();
     crearTarjetasPerfumesMasculinos(perfumesMasculinos, carrito);
@@ -94,7 +92,7 @@ function encierraTodo(perfumesMasculinos) {
         }
         setearCarrito(carrito)
     }
-
+    // Funcion del renderizado del carrito
     function renderizarCarrito(carrito) {
         let contenedorCarrito = document.getElementById("contenedorCarrito");
         contenedorCarrito.innerHTML = "";
@@ -115,6 +113,7 @@ function encierraTodo(perfumesMasculinos) {
         });
         sumaTotalDelCarrito(carrito);
     }
+    // Funcion que nos permite eliminar el producto del carrito
     function eliminarProducto(e) {
         let id = Number(e.target.id.substring(2))
         let carrito = obtenerCarrito()
@@ -149,7 +148,7 @@ function encierraTodo(perfumesMasculinos) {
         }
         return carrito;
     }
-
+    // Funcion para el seteo del carrito
     function setearCarrito(carrito) {
         let carritoJSON = JSON.stringify(carrito);
         localStorage.setItem("carrito", carritoJSON);
@@ -171,26 +170,24 @@ function encierraTodo(perfumesMasculinos) {
     // Funcion para poder ocultar el carrito mientas estamos seleccionando los productos
     let botonVerCarrito = document.getElementById("boton__carrito")
     botonVerCarrito.addEventListener("click", verOcultar)
-
+    // Funcion para ver y ocultar el carrito
     function verOcultar(e) {
         if (e.target.innerText === "Carrito") {
             e.target.innerText = "Producto"
         } else {
             e.target.innerText = "Carrito"
         }
-
         let contenedorProductos = document.getElementById("pagina__productos")
         let contenedorCarrito = document.getElementById("pagina__carrito")
-
         contenedorCarrito.classList.toggle("oculto")
         contenedorProductos.classList.toggle("oculto")
-        sumaTotalDelCarrito(carrito)
+        let carrito = obtenerCarrito()
+        sumaTotalDelCarrito(carrito);
+        renderizarCarrito(carrito)
     }
-
-
     let botonFinalizar = document.getElementById("fin")
     botonFinalizar.addEventListener("click", finalizarCompra)
-
+    //funcion que nos da el alerta necesario para que el usuario entienda que su compra fue realizada con exito
     function lanzarAlertaMasculino() {
         Swal.fire({
             title: "Pedido realizado con exito!",
@@ -199,25 +196,24 @@ function encierraTodo(perfumesMasculinos) {
             imageWidth: 300,
             imageHeight: 400,
             imageAlt: "Custom image"
-
         });
     }
-
+    //fucnion para avisar al usuario que el producto se agrego al carrito correctamente
     function alertaSumaCarrito() {
-
         Toastify({
             text: "Sumado al carrito!",
             duration: 3000,
             close: true,
-            gravity: "bottom", 
-            position: "left", 
-            stopOnFocus: true, 
+            gravity: "bottom",
+            position: "left",
+            stopOnFocus: true,
             style: {
                 background: "linear-gradient(to right, #2244c3, #2de9fd)",
             },
-            onClick: function () { } 
+            onClick: function () { }
         }).showToast();
     }
+    //funcion para avisar al usuario , que el carrito esta vacio.
     function alertaCarritoVacio() {
         Swal.fire({
             icon: "error",

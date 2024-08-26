@@ -2,7 +2,7 @@ fetch("./data2.json")
     .then(response => response.json())
     .then(productos => encierraTodo(productos))
     .catch(error => console.log(error))
-
+// Funcion encierraTodo , al no poder conseguir correctamente la funcion principal , me vi obligado a recurrir a esta funcion un tanto informal , pero con resultados sactifactorios a la hora de ejecutar el fetch.
 function encierraTodo(perfumesFemeninos) {
     //inicializacion del carrito y funciones para crear las tarjetas dinamicas
     let carrito = obtenerCarrito();
@@ -92,12 +92,25 @@ function encierraTodo(perfumesFemeninos) {
                 subtotal: producto.precio
             });
         }
+        setearCarrito(carrito)
+        renderizarCarrito(carrito)
     }
-
+    function sumaTotalDelCarrito(carrito) {
+        let total = carrito.reduce((acum, prod) => {
+            let subtotal = prod.precioUnitario * prod.unidades;
+            return acum + subtotal;
+        }, 0);
+        let contenedorTotal = document.getElementById("totalFemenino");
+        contenedorTotal.innerHTML = "";
+        let infoTotal = document.createElement("h3");
+        infoTotal.innerHTML = `Total: $${total}`;
+        contenedorTotal.appendChild(infoTotal);
+    }
+    // Funcion del renderizado del carrito
     function renderizarCarrito(carrito) {
         let contenedorCarrito = document.getElementById("contenedorCarritoFemenino");
         contenedorCarrito.innerHTML = "";
-        carrito.forEach(({ id, nombre, precioUnitario, unidades, subtotal}) => {
+        carrito.forEach(({ id, nombre, precioUnitario, unidades, subtotal }) => {
             let tarjetaCarrito = document.createElement("div")
             tarjetaCarrito.className = "div__carrito"
             tarjetaCarrito.id = "tcf" + id
@@ -108,12 +121,13 @@ function encierraTodo(perfumesFemeninos) {
         <p class = "subtitulo__perfume">Subtotal: $${subtotal}</p>
         <button class="boton__eliminar" id=bef${id}>Eliminar</button>
         `
-        contenedorCarrito.appendChild(tarjetaCarrito)
-        let btnEliminar = document.getElementById("bef" + id)
-        btnEliminar.addEventListener("click",(e) => eliminarProducto(e))
+            contenedorCarrito.appendChild(tarjetaCarrito)
+            let btnEliminar = document.getElementById("bef" + id)
+            btnEliminar.addEventListener("click", (e) => eliminarProducto(e))
         });
         sumaTotalDelCarrito(carrito);
     }
+    // Funcion que nos permite eliminar el producto del carrito
     function eliminarProducto(e) {
         let id = Number(e.target.id.substring(3))
         let carrito = obtenerCarrito()
@@ -127,18 +141,6 @@ function encierraTodo(perfumesFemeninos) {
         }
         sumaTotalDelCarrito(carrito)
     }
-    // Con esta funcion nos damos cuenta del precio total de los productos en el carrito
-    function sumaTotalDelCarrito(carrito) {
-        let total = carrito.reduce((acum, prod) => {
-            let subtotal = prod.precioUnitario * prod.unidades;
-            return acum + subtotal;
-        }, 0);
-        let contenedorTotal = document.getElementById("totalFemenino");
-        contenedorTotal.innerHTML = "";
-        let infoTotal = document.createElement("h3");
-        infoTotal.innerHTML = `Total: $${total}`;
-        contenedorTotal.appendChild(infoTotal);
-    }
     // Funciones para JSON y storage
     function obtenerCarrito() {
         let carrito = [];
@@ -147,7 +149,7 @@ function encierraTodo(perfumesFemeninos) {
         }
         return carrito;
     }
-
+    // Funcion para el seteo del carrito
     function setearCarrito(carrito) {
         let carritoJSON = JSON.stringify(carrito);
         localStorage.setItem("carrito", carritoJSON);
@@ -155,19 +157,19 @@ function encierraTodo(perfumesFemeninos) {
     //Funcion para finalizar la compra vaciando el carrito y los elementos en el storage
     function finalizarCompra() {
         let carritoStorage = localStorage.getItem("carrito")
-        if(carritoStorage){
-        localStorage.removeItem("carrito");
-        carrito.length = 0;
-        renderizarCarrito([]);
-        lanzarAlertaFemenino();
-        }else{
+        if (carritoStorage) {
+            localStorage.removeItem("carrito");
+            carrito.length = 0;
+            renderizarCarrito([]);
+            lanzarAlertaFemenino();
+        } else {
             alertaCarritoVacio()
         }
     }
     // Funcion para poder ocultar el carrito mientas estamos seleccionando los productos
     let botonVerCarrito = document.getElementById("boton__carrito__femenino");
     botonVerCarrito.addEventListener("click", verOcultar);
-
+    // Funcion para ver y ocultar el carrito 
     function verOcultar(e) {
         if (e.target.innerText === "Carrito") {
             e.target.innerText = "Producto";
@@ -180,12 +182,13 @@ function encierraTodo(perfumesFemeninos) {
 
         contenedorCarrito.classList.toggle("oculto");
         contenedorProductos.classList.toggle("oculto");
-        sumaTotalDelCarrito(carrito);
+        let carrito = obtenerCarrito()
+        sumaTotalDelCarrito(carrito)
+        renderizarCarrito(carrito)
     }
-
     let botonFinalizar = document.getElementById("fin__femeninos");
     botonFinalizar.addEventListener("click", finalizarCompra);
-
+    //funcion que nos da el alerta necesario para que el usuario entienda que su compra fue realizada con exito
     function lanzarAlertaFemenino() {
         Swal.fire({
             title: "Pedido realizado con exito!",
@@ -194,16 +197,15 @@ function encierraTodo(perfumesFemeninos) {
             imageWidth: 300,
             imageHeight: 400,
             imageAlt: "Custom image"
-
         });
     }
+    //fucnion para avisar al usuario que el producto se agrego al carrito correctamente
     function alertaSumaCarrito() {
-
         Toastify({
             text: "Sumado al carrito!",
             duration: 3000,
             close: true,
-            gravity: "bottom", 
+            gravity: "bottom",
             position: "left",
             stopOnFocus: true,
             style: {
@@ -212,7 +214,8 @@ function encierraTodo(perfumesFemeninos) {
             onClick: function () { }
         }).showToast();
     }
-    function alertaCarritoVacio(){
+    //funcion para avisar al usuario , que el carrito esta vacio.
+    function alertaCarritoVacio() {
         Swal.fire({
             icon: "error",
             title: "Parece que no hay nada en el carrito",
