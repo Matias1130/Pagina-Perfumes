@@ -62,7 +62,7 @@ function encierraTodo(perfumesFemeninos) {
         }
 
     }
-    // Funciones para agregar los elemenots al carrito
+    // Funcion para agregar eventos a todos los botones
     function agregarEventListenersBotonesAgregar() {
         let botonesAgregarAlCarrito = document.querySelectorAll('.boton');
         botonesAgregarAlCarrito.forEach(boton => {
@@ -77,7 +77,7 @@ function encierraTodo(perfumesFemeninos) {
             });
         });
     }
-    // esta funcion a demas de agregar al carrito , suma unidades y precio
+    // esta funcion ademas de agregar al carrito , suma unidades y precio
     function agregarAlCarrito(producto, carrito) {
         let indiceProdCarrito = carrito.findIndex(item => item.id === producto.id);
         if (indiceProdCarrito != -1) {
@@ -203,13 +203,13 @@ function encierraTodo(perfumesFemeninos) {
             text: "Sumado al carrito!",
             duration: 3000,
             close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: "left", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "bottom", 
+            position: "left",
+            stopOnFocus: true,
             style: {
                 background: "linear-gradient(to right, #eeaeae, #bc94e9)",
             },
-            onClick: function () { } // Callback after click
+            onClick: function () { }
         }).showToast();
     }
     function alertaCarritoVacio(){

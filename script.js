@@ -27,59 +27,58 @@ function encierraTodo(perfumesMasculinos) {
         });
         agregarEventListenersBotonesAgregar();
     }
-        //buscador por nombre
-        let input = document.getElementById("buscar")
-        let botonBuscar = document.getElementById("boton");
-        botonBuscar.addEventListener("click", () => {
-            filtrarPorNombre(perfumesMasculinos, input.value);
-        });
-        //funcion para filtrar por nombres
-        function filtrarPorNombre(perfumes, busqueda) {
-            let perfumesFiltrados = perfumesMasculinos.filter(perfumes => perfumes.nombre.toLowerCase().includes(busqueda))
-            if (busqueda.length === 0) {
-                crearTarjetasPerfumesMasculinos(perfumesMasculinos)
-            } else {
-                crearTarjetasPerfumesMasculinos(perfumesFiltrados)
+    //buscador por nombre
+    let input = document.getElementById("buscar")
+    let botonBuscar = document.getElementById("boton");
+    botonBuscar.addEventListener("click", () => {
+        filtrarPorNombre(perfumesMasculinos, input.value);
+    });
+    //funcion para filtrar por nombres
+    function filtrarPorNombre(perfumes, busqueda) {
+        let perfumesFiltrados = perfumesMasculinos.filter(perfumes => perfumes.nombre.toLowerCase().includes(busqueda))
+        if (busqueda.length === 0) {
+            crearTarjetasPerfumesMasculinos(perfumesMasculinos)
+        } else {
+            crearTarjetasPerfumesMasculinos(perfumesFiltrados)
+        }
+    }
+    //Filtros por esencia , utilize el evento change para que filtre por la esencia deseada al clickear en el chekbox
+    let selector = document.getElementById("div__filtros")
+    selector.addEventListener("change", () => filtrarPorEsencia())
+    function filtrarPorEsencia() {
+        let esencia = []
+        let inputs = document.getElementsByClassName("input")
+        for (const input of inputs) {
+            if (input.checked) {
+                esencia.push(input.id)
             }
         }
-        //Filtros por esencia , utilize el evento change para que filtre por la esencia deseada al clickear en el chekbox
-        let selector = document.getElementById("div__filtros")
-        selector.addEventListener("change", () => filtrarPorEsencia())
-        function filtrarPorEsencia() {
-            let esencia = []
-            let inputs = document.getElementsByClassName("input")
-            for (const input of inputs) {
-                if (input.checked) {
-                    esencia.push(input.id)
-                }
-            }
-            if (esencia.length === 0) {
-                crearTarjetasPerfumesMasculinos(perfumesMasculinos)
-            } else {
-                perfumesFiltrados = perfumesMasculinos.filter(producto => esencia.includes(producto.esencia.toLowerCase()))
-                crearTarjetasPerfumesMasculinos(perfumesFiltrados)
-            }
-
+        if (esencia.length === 0) {
+            crearTarjetasPerfumesMasculinos(perfumesMasculinos)
+        } else {
+            perfumesFiltrados = perfumesMasculinos.filter(producto => esencia.includes(producto.esencia.toLowerCase()))
+            crearTarjetasPerfumesMasculinos(perfumesFiltrados)
         }
-
-        function agregarEventListenersBotonesAgregar() {
-            let botonesAgregarAlCarrito = document.querySelectorAll('.boton');
-            botonesAgregarAlCarrito.forEach(boton => {
-                boton.addEventListener("click", () => {
-                    let idProducto = boton.id.split('-')[1];
-                    let producto = perfumesMasculinos.find(p => p.id == idProducto);
-                    let carrito = obtenerCarrito();
-                    agregarAlCarrito(producto, carrito);
-                    setearCarrito(carrito);
-                    alertaSumaCarrito();
-                    renderizarCarrito(carrito);
-                });
+    }
+    //funcion para agregar eventos a todos los botones
+    function agregarEventListenersBotonesAgregar() {
+        let botonesAgregarAlCarrito = document.querySelectorAll('.boton');
+        botonesAgregarAlCarrito.forEach(boton => {
+            boton.addEventListener("click", () => {
+                let idProducto = boton.id.split('-')[1];
+                let producto = perfumesMasculinos.find(p => p.id == idProducto);
+                let carrito = obtenerCarrito();
+                agregarAlCarrito(producto, carrito);
+                setearCarrito(carrito);
+                alertaSumaCarrito();
+                renderizarCarrito(carrito);
             });
-        }
-    
-    
+        });
+    }
+
+
     // esta funcion a demas de agregar al carrito , suma unidades y precio
-    function agregarAlCarrito(producto,carrito) {
+    function agregarAlCarrito(producto, carrito) {
         let indiceProdCarrito = carrito.findIndex(item => item.id === producto.id);
         if (indiceProdCarrito != -1) {
             carrito[indiceProdCarrito].unidades++;
@@ -99,7 +98,7 @@ function encierraTodo(perfumesMasculinos) {
     function renderizarCarrito(carrito) {
         let contenedorCarrito = document.getElementById("contenedorCarrito");
         contenedorCarrito.innerHTML = "";
-        carrito.forEach(({ id, nombre, precioUnitario, unidades, subtotal}) => {
+        carrito.forEach(({ id, nombre, precioUnitario, unidades, subtotal }) => {
             let tarjetaCarrito = document.createElement("div")
             tarjetaCarrito.className = "div__carrito"
             tarjetaCarrito.id = "tc" + id
@@ -110,11 +109,11 @@ function encierraTodo(perfumesMasculinos) {
         <p class = "subtitulo__perfume">Subtotal: $${subtotal}</p>
         <button class="boton__eliminar" id=be${id}>Eliminar</button>
         `
-        contenedorCarrito.appendChild(tarjetaCarrito)
-        let btnEliminar = document.getElementById("be" + id)
-        btnEliminar.addEventListener("click",(e) => eliminarProducto(e))
-    });
-    sumaTotalDelCarrito(carrito);
+            contenedorCarrito.appendChild(tarjetaCarrito)
+            let btnEliminar = document.getElementById("be" + id)
+            btnEliminar.addEventListener("click", (e) => eliminarProducto(e))
+        });
+        sumaTotalDelCarrito(carrito);
     }
     function eliminarProducto(e) {
         let id = Number(e.target.id.substring(2))
@@ -158,12 +157,12 @@ function encierraTodo(perfumesMasculinos) {
     //Funcion para finalizar la compra vaciando el carrito y los elementos en el storage
     function finalizarCompra() {
         let carritoStorage = localStorage.getItem("carrito")
-        if(carritoStorage){
-        localStorage.removeItem("carrito");
-        carrito.length = 0;
-        renderizarCarrito([]);
-        lanzarAlertaMasculino();
-        }else{
+        if (carritoStorage) {
+            localStorage.removeItem("carrito");
+            carrito.length = 0;
+            renderizarCarrito([]);
+            lanzarAlertaMasculino();
+        } else {
             carrito.length = 0;
             renderizarCarrito([]);
             alertaCarritoVacio()
@@ -210,13 +209,13 @@ function encierraTodo(perfumesMasculinos) {
             text: "Sumado al carrito!",
             duration: 3000,
             close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: "left", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "bottom", 
+            position: "left", 
+            stopOnFocus: true, 
             style: {
                 background: "linear-gradient(to right, #2244c3, #2de9fd)",
             },
-            onClick: function () { } // Callback after click
+            onClick: function () { } 
         }).showToast();
     }
     function alertaCarritoVacio() {
